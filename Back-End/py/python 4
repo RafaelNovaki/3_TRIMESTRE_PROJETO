@@ -1,0 +1,44 @@
+fornecedor_id = 1
+estoque_id = 1
+
+fornecedores = []
+estoques = []
+
+print("=== CADASTRO DE FORNECEDOR ===")
+
+nome_fornecedor = input("Digite o nome do fornecedor: ").strip()
+
+nome_fornecedor = nome_fornecedor.strip()
+
+telefone = input("Digite o telefone do fornecedor (ex: (41)99999-9999): ")
+
+telefone = telefone.replace("(", "").replace(")", "").replace("-", "").replace(" ", "")
+ddd = telefone[:2]
+numero = telefone[2:]
+
+email = input("Digite o email do fornecedor: ").strip()
+
+fornecedores.append({"id": fornecedor_id, "nome": nome_fornecedor, "ddd": ddd, "numero": numero, "email": email})
+
+while True:
+    produto_id = input("Digite o ID do produto para adicionar ao estoque: ").strip()
+    quantidade = input("Digite a quantidade em estoque: ").strip()
+
+    try:
+        quantidade = int(quantidade)
+    except:
+        quantidade = 0  
+
+    estoques.append({"id": estoque_id, "produto_id": produto_id, "fornecedor_id": fornecedor_id, "quantidade": quantidade})
+
+    estoque_id += 1
+
+    continuar = input("Deseja adicionar outro produto ao estoque? (s/n): ").strip().lower()
+    if continuar != "s":
+        break
+
+print("\n=== DADOS TRATADOS ===")
+print("Fornecedores:", fornecedores)
+print("Estoque:", estoques)
+
+fornecedor_id += 1
