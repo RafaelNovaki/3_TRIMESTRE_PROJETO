@@ -1,0 +1,48 @@
+pedido_id = 1
+item_id = 1
+pagamento_id = 1
+
+pedidos = []
+itens_pedido = []
+pagamentos = []
+
+print("=== CADASTRO DE PEDIDO ===")
+
+cliente_id = input("Digite o ID do cliente que está fazendo o pedido: ").strip()
+data_pedido = input("Digite a data do pedido (ex: 26/09/2025): ").strip()
+
+pedidos.append({"id": pedido_id, "cliente_id": cliente_id, "data": data_pedido})
+
+while True:
+    produto_id = input("Digite o ID do produto que deseja adicionar ao pedido: ").strip()
+    quantidade = input("Digite a quantidade: ").strip()
+    try:
+        quantidade = int(quantidade)
+    except:
+        quantidade = 1
+
+    itens_pedido.append({"id": item_id, "pedido_id": pedido_id, "produto_id": produto_id, "quantidade": quantidade})
+
+    item_id += 1
+
+    continuar = input("Deseja adicionar outro item? (s/n): ").strip().lower()
+    if continuar != "s":
+        break
+
+tipo_pagamento = input("Digite o tipo de pagamento (ex: cartão, boleto, pix): ").strip()
+valor_total = input("Digite o valor total do pedido (ex: 199.99): ").replace(",", ".").strip()
+
+try:
+    valor_total = float(valor_total)
+except:
+    valor_total = 0.0
+
+pagamentos.append({"id": pagamento_id, "pedido_id": pedido_id, "tipo": tipo_pagamento, "valor": valor_total})
+
+print("\n=== DADOS TRATADOS ===")
+print("Pedidos:", pedidos)
+print("Itens do Pedido:", itens_pedido)
+print("Pagamentos:", pagamentos)
+
+pedido_id += 1
+pagamento_id += 1
