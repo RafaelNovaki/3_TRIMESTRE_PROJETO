@@ -1,0 +1,31 @@
+produto_id = 1
+categoria_id = 1
+
+produtos = []
+categorias = []
+
+print("=== CADASTRO DE PRODUTO ===")
+
+nome_categoria = input("Digite o nome da categoria do produto: ").strip()
+
+nome_categoria = nome_categoria.capitalize()
+
+categorias.append({"id": categoria_id, "nome": nome_categoria})
+
+nome_produto = input("Digite o nome do produto: ").strip()
+descricao = input("Digite a descrição do produto: ").strip()
+preco = input("Digite o preço do produto (ex: 199.99): ").replace(",", ".").strip()
+
+try:
+    preco = float(preco)
+except:
+    preco = 0.0
+
+produtos.append({"id": produto_id, "nome": nome_produto, "descricao": descricao, "preco": preco, "categoria_id": categoria_id})
+
+print("\n=== DADOS TRATADOS ===")
+print("Categorias:", categorias)
+print("Produtos:", produtos)
+
+produto_id += 1
+categoria_id += 1
