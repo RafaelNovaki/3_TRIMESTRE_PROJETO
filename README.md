@@ -1,3 +1,3 @@
 # 3_TRIMESTRE_PROJETO
 
-<img width="4374" height="4374" alt="DIAGRAMA" src="https://github.com/user-attachments/assets/ea2baa0c-b2f8-475a-bf1f-9483fb665dc4" />
+<img width="9280" height="8702" alt="DIAGRAMA" src="https://github.com/user-attachments/assets/3a35eecf-b671-40aa-a78e-31e48e9e75d3" />
