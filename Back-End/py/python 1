@@ -1,0 +1,40 @@
+cliente_id = 1
+
+clientes = []
+contatos = []
+enderecos = []
+
+print("=== CADASTRO DE CLIENTE ===")
+
+nome = input("Digite o nome do cliente: ")
+
+nome = nome.strip()  
+
+senha = input("Digite a senha do cliente: ")
+
+senha_criptografada = senha[::-1]
+
+telefone = input("Digite o telefone do cliente (ex: (41)99999-9999): ")
+
+telefone = telefone.replace("(", "").replace(")", "").replace("-", "").replace(" ", "")
+ddd = telefone[:2]
+numero = telefone[2:]
+
+email = input("Digite o email do cliente: ").strip()
+
+rua = input("Digite a rua: ").strip()
+numero_end = input("Digite o número da casa: ").strip()
+cidade = input("Digite a cidade: ").strip()
+cep = input("Digite o CEP (ex: 12345-678): ").replace("-", "").strip() 
+
+clientes.append({"id": cliente_id, "nome": nome, "senha": senha_criptografada})
+contatos.append({"cliente_id": cliente_id, "ddd": ddd, "numero": numero, "email": email})
+enderecos.append({"cliente_id": cliente_id, "rua": rua, "numero": numero_end, "cidade": cidade, "cep": cep})
+
+print("\n=== DADOS TRATADOS ===")
+print("Cliente:", clientes)
+print("Contato:", contatos)
+print("Endereço:", enderecos)
+
+
+cliente_id += 1
